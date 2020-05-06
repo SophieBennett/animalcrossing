@@ -1,0 +1,4 @@
+"0","set.seed(2025)"
+"0","num_sharing_villagers <- replicate(50000, sample_birthdays())"
+"0","obs_duplicates <- tibble(sample_num = seq(1:50000),"
+"0","       num_sharing_villagers = num_sharing_villagers)"

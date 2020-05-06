@@ -1,0 +1,463 @@
+"0","library(tidyverse)"
+"2","[37m-- [1mAttaching packages[22m --------------------------------------- tidyverse 1.3.0 --[39m
+"
+"2","[37m[32mv[37m [34mggplot2[37m 3.3.0     [32mv[37m [34mpurrr  [37m 0.3.4
+[32mv[37m [34mtibble [37m 3.0.0     [32mv[37m [34mdplyr  [37m 0.8.5
+[32mv[37m [34mtidyr  [37m 1.0.2     [32mv[37m [34mstringr[37m 1.4.0
+[32mv[37m [34mreadr  [37m 1.3.1     [32mv[37m [34mforcats[37m 0.5.0[39m
+"
+"2","[37m-- [1mConflicts[22m ------------------------------------------ tidyverse_conflicts() --
+[31mx[37m [34mdplyr[37m::[32mfilter()[37m masks [34mstats[37m::filter()
+[31mx[37m [34mdplyr[37m::[32mlag()[37m    masks [34mstats[37m::lag()[39m
+"
+"0","extrafont::loadfonts(device=""win"")"
+"2","Registering font with R using windowsFonts(): Agency FB
+"
+"2","Registering font with R using windowsFonts(): Algerian
+"
+"2","Registering font with R using windowsFonts(): Arial Black
+"
+"2","Registering font with R using windowsFonts(): Arial
+"
+"2","Registering font with R using windowsFonts(): Arial Narrow
+"
+"2","Registering font with R using windowsFonts(): Arial Nova
+"
+"2","Registering font with R using windowsFonts(): Arial Nova Light
+"
+"2","Registering font with R using windowsFonts(): Arial Nova Cond
+"
+"2","Registering font with R using windowsFonts(): Arial Nova Cond Light
+"
+"2","Registering font with R using windowsFonts(): Arial Rounded MT Bold
+"
+"2","Registering font with R using windowsFonts(): Bahnschrift
+"
+"2","Registering font with R using windowsFonts(): Baskerville Old Face
+"
+"2","Registering font with R using windowsFonts(): Bauhaus 93
+"
+"2","Registering font with R using windowsFonts(): Bell MT
+"
+"2","Registering font with R using windowsFonts(): Berlin Sans FB
+"
+"2","Registering font with R using windowsFonts(): Berlin Sans FB Demi
+"
+"2","Registering font with R using windowsFonts(): Bernard MT Condensed
+"
+"2","Registering font with R using windowsFonts(): Blackadder ITC
+"
+"2","Registering font with R using windowsFonts(): Bodoni MT
+"
+"2","Registering font with R using windowsFonts(): Bodoni MT Black
+"
+"2","Registering font with R using windowsFonts(): Bodoni MT Condensed
+"
+"2","Registering font with R using windowsFonts(): Bodoni MT Poster Compressed
+"
+"2","Registering font with R using windowsFonts(): Book Antiqua
+"
+"2","Registering font with R using windowsFonts(): Bookman Old Style
+"
+"2","Registering font with R using windowsFonts(): Bookshelf Symbol 7
+"
+"2","Registering font with R using windowsFonts(): Bradley Hand ITC
+"
+"2","Registering font with R using windowsFonts(): Britannic Bold
+"
+"2","Registering font with R using windowsFonts(): Broadway
+"
+"2","Registering font with R using windowsFonts(): Brush Script MT
+"
+"2","Registering font with R using windowsFonts(): Calibri
+"
+"2","Registering font with R using windowsFonts(): Calibri Light
+"
+"2","Registering font with R using windowsFonts(): Californian FB
+"
+"2","Registering font with R using windowsFonts(): Calisto MT
+"
+"2","Registering font with R using windowsFonts(): Cambria
+"
+"2","Registering font with R using windowsFonts(): Candara
+"
+"2","Registering font with R using windowsFonts(): Candara Light
+"
+"2","Registering font with R using windowsFonts(): Castellar
+"
+"2","Registering font with R using windowsFonts(): Centaur
+"
+"2","Registering font with R using windowsFonts(): Century
+"
+"2","Registering font with R using windowsFonts(): Century Gothic
+"
+"2","Registering font with R using windowsFonts(): Century Schoolbook
+"
+"2","Registering font with R using windowsFonts(): Chiller
+"
+"2","Registering font with R using windowsFonts(): Colonna MT
+"
+"2","Registering font with R using windowsFonts(): Comic Sans MS
+"
+"2","Registering font with R using windowsFonts(): Consolas
+"
+"2","Registering font with R using windowsFonts(): Constantia
+"
+"2","Registering font with R using windowsFonts(): Cooper Black
+"
+"2","Registering font with R using windowsFonts(): Copperplate Gothic Bold
+"
+"2","Registering font with R using windowsFonts(): Copperplate Gothic Light
+"
+"2","Registering font with R using windowsFonts(): Corbel
+"
+"2","Registering font with R using windowsFonts(): Corbel Light
+"
+"2","Registering font with R using windowsFonts(): Courier New
+"
+"2","Registering font with R using windowsFonts(): Curlz MT
+"
+"2","Registering font with R using windowsFonts(): Ebrima
+"
+"2","Registering font with R using windowsFonts(): Edwardian Script ITC
+"
+"2","Registering font with R using windowsFonts(): Elephant
+"
+"2","Registering font with R using windowsFonts(): Engravers MT
+"
+"2","Registering font with R using windowsFonts(): Eras Bold ITC
+"
+"2","Registering font with R using windowsFonts(): Eras Demi ITC
+"
+"2","Registering font with R using windowsFonts(): Eras Light ITC
+"
+"2","Registering font with R using windowsFonts(): Eras Medium ITC
+"
+"2","Registering font with R using windowsFonts(): Felix Titling
+"
+"2","Registering font with R using windowsFonts(): Footlight MT Light
+"
+"2","Registering font with R using windowsFonts(): Forte
+"
+"2","Registering font with R using windowsFonts(): Franklin Gothic Book
+"
+"2","Registering font with R using windowsFonts(): Franklin Gothic Demi
+"
+"2","Registering font with R using windowsFonts(): Franklin Gothic Demi Cond
+"
+"2","Registering font with R using windowsFonts(): Franklin Gothic Heavy
+"
+"2","Registering font with R using windowsFonts(): Franklin Gothic Medium
+"
+"2","Registering font with R using windowsFonts(): Franklin Gothic Medium Cond
+"
+"2","Registering font with R using windowsFonts(): Freestyle Script
+"
+"2","Registering font with R using windowsFonts(): French Script MT
+"
+"2","Registering font with R using windowsFonts(): Gabriola
+"
+"2","Registering font with R using windowsFonts(): Gadugi
+"
+"2","Registering font with R using windowsFonts(): Garamond
+"
+"2","Registering font with R using windowsFonts(): Georgia
+"
+"2","Registering font with R using windowsFonts(): Georgia Pro Black
+"
+"2","Registering font with R using windowsFonts(): Georgia Pro
+"
+"2","Registering font with R using windowsFonts(): Georgia Pro Cond Black
+"
+"2","Registering font with R using windowsFonts(): Georgia Pro Cond
+"
+"2","Registering font with R using windowsFonts(): Georgia Pro Cond Light
+"
+"2","Registering font with R using windowsFonts(): Georgia Pro Cond Semibold
+"
+"2","Registering font with R using windowsFonts(): Georgia Pro Light
+"
+"2","Registering font with R using windowsFonts(): Georgia Pro Semibold
+"
+"2","Registering font with R using windowsFonts(): Gigi
+"
+"2","Registering font with R using windowsFonts(): Gill Sans Ultra Bold
+"
+"2","Registering font with R using windowsFonts(): Gill Sans Ultra Bold Condensed
+"
+"2","Registering font with R using windowsFonts(): Gill Sans MT
+"
+"2","Registering font with R using windowsFonts(): Gill Sans MT Condensed
+"
+"2","Registering font with R using windowsFonts(): Gill Sans MT Ext Condensed Bold
+"
+"2","Registering font with R using windowsFonts(): Gill Sans Nova
+"
+"2","Registering font with R using windowsFonts(): Gill Sans Nova Cond
+"
+"2","Registering font with R using windowsFonts(): Gill Sans Nova Cond Lt
+"
+"2","Registering font with R using windowsFonts(): Gill Sans Nova Cond Ultra Bold
+"
+"2","Registering font with R using windowsFonts(): Gill Sans Nova Cond XBd
+"
+"2","Registering font with R using windowsFonts(): Gill Sans Nova Light
+"
+"2","Registering font with R using windowsFonts(): Gill Sans Nova Ultra Bold
+"
+"2","Registering font with R using windowsFonts(): Gloucester MT Extra Condensed
+"
+"2","Registering font with R using windowsFonts(): Goudy Old Style
+"
+"2","Registering font with R using windowsFonts(): Goudy Stout
+"
+"2","Registering font with R using windowsFonts(): Haettenschweiler
+"
+"2","Registering font with R using windowsFonts(): Harlow Solid Italic
+"
+"2","Registering font with R using windowsFonts(): Harrington
+"
+"2","Registering font with R using windowsFonts(): High Tower Text
+"
+"2","Registering font with R using windowsFonts(): HoloLens MDL2 Assets
+"
+"2","Registering font with R using windowsFonts(): HP Simplified
+"
+"2","Registering font with R using windowsFonts(): HP Simplified Light
+"
+"2","Registering font with R using windowsFonts(): Impact
+"
+"2","Registering font with R using windowsFonts(): Imprint MT Shadow
+"
+"2","Registering font with R using windowsFonts(): Informal Roman
+"
+"2","Registering font with R using windowsFonts(): Ink Free
+"
+"2","Registering font with R using windowsFonts(): Javanese Text
+"
+"2","Registering font with R using windowsFonts(): Jokerman
+"
+"2","Registering font with R using windowsFonts(): Juice ITC
+"
+"2","Registering font with R using windowsFonts(): Kristen ITC
+"
+"2","Registering font with R using windowsFonts(): Kunstler Script
+"
+"2","Registering font with R using windowsFonts(): Wide Latin
+"
+"2","Registering font with R using windowsFonts(): Lato Black
+"
+"2","Registering font with R using windowsFonts(): Lato
+"
+"2","Registering font with R using windowsFonts(): Lato Heavy
+"
+"2","Registering font with R using windowsFonts(): Lato Light
+"
+"2","Registering font with R using windowsFonts(): Lato Medium
+"
+"2","Registering font with R using windowsFonts(): Lato Semibold
+"
+"2","Registering font with R using windowsFonts(): Lato Thin
+"
+"2","Registering font with R using windowsFonts(): Leelawadee UI
+"
+"2","Registering font with R using windowsFonts(): Leelawadee UI Semilight
+"
+"2","Registering font with R using windowsFonts(): Lucida Bright
+"
+"2","Registering font with R using windowsFonts(): Lucida Calligraphy
+"
+"2","Registering font with R using windowsFonts(): Lucida Console
+"
+"2","Registering font with R using windowsFonts(): Lucida Fax
+"
+"2","Registering font with R using windowsFonts(): Lucida Handwriting
+"
+"2","Registering font with R using windowsFonts(): Lucida Sans
+"
+"2","Registering font with R using windowsFonts(): Lucida Sans Typewriter
+"
+"2","Registering font with R using windowsFonts(): Lucida Sans Unicode
+"
+"2","Registering font with R using windowsFonts(): Magneto
+"
+"2","Registering font with R using windowsFonts(): Maiandra GD
+"
+"2","Registering font with R using windowsFonts(): Malgun Gothic
+"
+"2","Registering font with R using windowsFonts(): Malgun Gothic Semilight
+"
+"2","Registering font with R using windowsFonts(): Marlett
+"
+"2","Registering font with R using windowsFonts(): Matura MT Script Capitals
+"
+"2","Registering font with R using windowsFonts(): Microsoft Himalaya
+"
+"2","Registering font with R using windowsFonts(): Microsoft Yi Baiti
+"
+"2","Registering font with R using windowsFonts(): Microsoft New Tai Lue
+"
+"2","Registering font with R using windowsFonts(): Microsoft PhagsPa
+"
+"2","Registering font with R using windowsFonts(): Microsoft Sans Serif
+"
+"2","Registering font with R using windowsFonts(): Microsoft Tai Le
+"
+"2","Registering font with R using windowsFonts(): Mistral
+"
+"2","Registering font with R using windowsFonts(): Modern No. 20
+"
+"2","Registering font with R using windowsFonts(): Mongolian Baiti
+"
+"2","Registering font with R using windowsFonts(): Monotype Corsiva
+"
+"2","Registering font with R using windowsFonts(): MS Outlook
+"
+"2","Registering font with R using windowsFonts(): MS Reference Sans Serif
+"
+"2","Registering font with R using windowsFonts(): MS Reference Specialty
+"
+"2","Registering font with R using windowsFonts(): MT Extra
+"
+"2","Registering font with R using windowsFonts(): MV Boli
+"
+"2","Registering font with R using windowsFonts(): Myanmar Text
+"
+"2","Registering font with R using windowsFonts(): Neue Haas Grotesk Text Pro
+"
+"2","Registering font with R using windowsFonts(): Neue Haas Grotesk Text Pro Medium
+"
+"2","Registering font with R using windowsFonts(): Niagara Engraved
+"
+"2","Registering font with R using windowsFonts(): Niagara Solid
+"
+"2","Registering font with R using windowsFonts(): Nirmala UI
+"
+"2","Registering font with R using windowsFonts(): Nirmala UI Semilight
+"
+"2","Registering font with R using windowsFonts(): OCR A Extended
+"
+"2","Registering font with R using windowsFonts(): Old English Text MT
+"
+"2","Registering font with R using windowsFonts(): Onyx
+"
+"2","Registering font with R using windowsFonts(): Palace Script MT
+"
+"2","Registering font with R using windowsFonts(): Palatino Linotype
+"
+"2","Registering font with R using windowsFonts(): Papyrus
+"
+"2","Registering font with R using windowsFonts(): Parchment
+"
+"2","Registering font with R using windowsFonts(): Perpetua
+"
+"2","Registering font with R using windowsFonts(): Perpetua Titling MT
+"
+"2","Registering font with R using windowsFonts(): Playbill
+"
+"2","Registering font with R using windowsFonts(): Poor Richard
+"
+"2","Registering font with R using windowsFonts(): Pristina
+"
+"2","Registering font with R using windowsFonts(): Rage Italic
+"
+"2","Registering font with R using windowsFonts(): Ravie
+"
+"2","Registering font with R using windowsFonts(): Rockwell
+"
+"2","Registering font with R using windowsFonts(): Rockwell Condensed
+"
+"2","Registering font with R using windowsFonts(): Rockwell Extra Bold
+"
+"2","Registering font with R using windowsFonts(): Rockwell Nova
+"
+"2","Registering font with R using windowsFonts(): Rockwell Nova Cond
+"
+"2","Registering font with R using windowsFonts(): Rockwell Nova Cond Light
+"
+"2","Registering font with R using windowsFonts(): Rockwell Nova Extra Bold
+"
+"2","Registering font with R using windowsFonts(): Rockwell Nova Light
+"
+"2","Registering font with R using windowsFonts(): Script MT Bold
+"
+"2","Registering font with R using windowsFonts(): Segoe MDL2 Assets
+"
+"2","Registering font with R using windowsFonts(): Segoe Print
+"
+"2","Registering font with R using windowsFonts(): Segoe Script
+"
+"2","Registering font with R using windowsFonts(): Segoe UI
+"
+"2","Registering font with R using windowsFonts(): Segoe UI Light
+"
+"2","Registering font with R using windowsFonts(): Segoe UI Semibold
+"
+"2","Registering font with R using windowsFonts(): Segoe UI Semilight
+"
+"2","Registering font with R using windowsFonts(): Segoe UI Black
+"
+"2","Registering font with R using windowsFonts(): Segoe UI Emoji
+"
+"2","Registering font with R using windowsFonts(): Segoe UI Historic
+"
+"2","Registering font with R using windowsFonts(): Segoe UI Symbol
+"
+"2","Registering font with R using windowsFonts(): Showcard Gothic
+"
+"2","Registering font with R using windowsFonts(): SimSun-ExtB
+"
+"2","Registering font with R using windowsFonts(): Snap ITC
+"
+"2","Registering font with R using windowsFonts(): Stencil
+"
+"2","Registering font with R using windowsFonts(): Sylfaen
+"
+"2","Registering font with R using windowsFonts(): Symbol
+"
+"2","Registering font with R using windowsFonts(): Tahoma
+"
+"2","Registering font with R using windowsFonts(): Tempus Sans ITC
+"
+"2","Registering font with R using windowsFonts(): Times New Roman
+"
+"2","Registering font with R using windowsFonts(): Trebuchet MS
+"
+"2","Registering font with R using windowsFonts(): Tw Cen MT
+"
+"2","Registering font with R using windowsFonts(): Tw Cen MT Condensed
+"
+"2","Registering font with R using windowsFonts(): Tw Cen MT Condensed Extra Bold
+"
+"2","Registering font with R using windowsFonts(): Verdana
+"
+"2","Registering font with R using windowsFonts(): Verdana Pro
+"
+"2","Registering font with R using windowsFonts(): Verdana Pro Black
+"
+"2","Registering font with R using windowsFonts(): Verdana Pro Cond Black
+"
+"2","Registering font with R using windowsFonts(): Verdana Pro Cond
+"
+"2","Registering font with R using windowsFonts(): Verdana Pro Cond Light
+"
+"2","Registering font with R using windowsFonts(): Verdana Pro Cond Semibold
+"
+"2","Registering font with R using windowsFonts(): Verdana Pro Light
+"
+"2","Registering font with R using windowsFonts(): Verdana Pro Semibold
+"
+"2","Registering font with R using windowsFonts(): Viner Hand ITC
+"
+"2","Registering font with R using windowsFonts(): Vivaldi
+"
+"2","Registering font with R using windowsFonts(): Vladimir Script
+"
+"2","Registering font with R using windowsFonts(): Webdings
+"
+"2","Registering font with R using windowsFonts(): Wingdings
+"
+"2","Registering font with R using windowsFonts(): Wingdings 2
+"
+"2","Registering font with R using windowsFonts(): Wingdings 3
+"

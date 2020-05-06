@@ -1,0 +1,5 @@
+"0","bday_per_date <- plyr::ddply(df,.(month), transform, monthweek=1+week-min(week))
+"
+"2","Error in if (empty(.data)) return(.data) : 
+  missing value where TRUE/FALSE needed
+"
